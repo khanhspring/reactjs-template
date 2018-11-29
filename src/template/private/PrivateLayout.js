@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {UserActions} from "../../containers/user/UserActions";
 export default class PrivateLayout extends Component {
+
     render() {
         const Component = this.props.component;
         const route = this.props.route;
@@ -9,19 +11,45 @@ export default class PrivateLayout extends Component {
 
         return (
             <div>
-                <div>
-                    <h1>Private Layout</h1>
-                    <h2>Hello {user.name}</h2>
-                    <ul>
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/contact'>Contact</Link></li>
-                        <li><Link to='/profile'>Profile</Link></li>
-                        <li><Link to='/profile/posts'>Posts</Link></li>
+                <header className="navbar navbar-expand navbar-dark bg-dark flex-column flex-md-row bd-navbar">
+                    <a className="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
+                        ADMIN
+                    </a>
+
+                    <div className="navbar-nav-scroll">
+                        <ul className="navbar-nav bd-navbar-nav flex-row">
+                            <li className="nav-item">
+                                <Link to='/admin' className="nav-link">Dashboard</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to='/user' className="nav-link">User</Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                        <li className="nav-item">
+                            <Link to='/admin' className="nav-link">{user.name}</Link>
+                        </li>
+                        <li className="nav-item">
+                            <button className="btn btn-outline-info my-2 my-sm-0" type="submit" onClick={() => {userActions.logout()}}>Logout</button>
+                        </li>
                     </ul>
-                    <button onClick={() => {userActions.logout()}}>Logout</button>
-                </div>
-                <div>
-                    <Component route={route}/>
+                </header>
+
+                <div className="container-fluid admin-page-container">
+                    <div className="row">
+                        <div className="col-2 admin-page-sidebar">
+                            <div>
+                            </div>
+                        </div>
+                        <div className="col-10 admin-page-workspace">
+                            <div>
+                                <Component route={route}/>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         );

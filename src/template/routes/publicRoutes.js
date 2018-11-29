@@ -1,5 +1,6 @@
-import {Home} from "../../containers/Home";
 import {Contact} from "../../containers/Contact";
+import BlogList from "../../containers/blog/BlogList";
+import Home from "../../containers/Home";
 
 export default {
     Home: {
@@ -10,4 +11,8 @@ export default {
         component: Contact,
         path: '/contact'
     },
+    BlogList: {
+        component: BlogList,
+        path: '/blog'
+    }
 };

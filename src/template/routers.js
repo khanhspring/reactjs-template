@@ -1,18 +1,18 @@
-import {Dashboard} from "../../containers/Dashboard";
+import {Profile} from "../../containers/Dashboard";
 import {Posts} from "../../containers/Posts";
 import {Post} from "../../containers/Post";
 
 export default {
     Profile: {
-        component: Dashboard,
-        path: '/admin'
+        component: Profile,
+        path: '/profile'
     },
     Posts: {
         component: Posts,
-        path: '/admin/posts'
+        path: '/profile/posts'
     },
     Post:{
         component: Post,
-        path: '/admin/posts/:idPost'
+        path: '/profile/posts/:idPost'
     }
 };

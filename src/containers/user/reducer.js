@@ -1,7 +1,7 @@
 import { USER } from './UserActions';
 
 const userDefault = {
-    name:'John Doe',
+    name:'Trần Xuân Khánh',
     logged: false,
     verified: false
 }
