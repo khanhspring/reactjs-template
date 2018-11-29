@@ -44,9 +44,12 @@ export default class PublicLayout extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="container page-container mt-5">
+                <div className="main-wrap">
                     <Component route={route}/>
                 </div>
+                <footer>
+                    <span>KhanhSpring - Copyright 2018</span>
+                </footer>
             </div>
         );
     }

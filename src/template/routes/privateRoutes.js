@@ -1,6 +1,6 @@
 import {Dashboard} from "../../containers/Dashboard";
-import {Posts} from "../../containers/Posts";
-import {Post} from "../../containers/Post";
+import Posts from "../../containers/post/Posts";
+import Post from "../../containers/post/Post";
 
 export default {
     Profile: {
@@ -13,6 +13,6 @@ export default {
     },
     Post:{
         component: Post,
-        path: '/admin/posts/:idPost'
+        path: '/admin/posts/:id'
     }
 };

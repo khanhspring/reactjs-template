@@ -6,7 +6,7 @@ export default class LoginLayout extends Component {
         const route = this.props.route;
         const user  = this.props.user;
         return (
-            <div>
+            <div className="login-wrap">
                 <Component route={route}/>
             </div>
         );

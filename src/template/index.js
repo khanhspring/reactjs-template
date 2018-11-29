@@ -10,7 +10,7 @@ import publicRoutes  from './routes/publicRoutes';
 import sessionRoutes from './routes/sessionRoutes';
 
 import { UserActions } from '../containers/user/UserActions';
-import Login from '../containers/user/Login';
+import Login from '../containers/Login';
 import NotFound from './public/NotFound';
 import LoginLayout from "./public/LoginLayout";
 import PublicLayout from "./public/PublicLayout";
