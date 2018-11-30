@@ -10,10 +10,13 @@ class Posts extends Component {
             isLoaded: false,
             items: []
         };
-        this.deleteHandle = deleteHandle()
     }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
         fetch('http://localhost:8080/posts')
             .then(res => res.json())
             .then((result) => {
@@ -31,9 +34,9 @@ class Posts extends Component {
                 });
     }
 
-    deleteHandle() {
+    deleteHandle(id) {
         if (window.confirm("Are you sure?")) {
-            console.log(123);
+            console.log('id: ' + id);
         }
     }
 
@@ -59,7 +62,7 @@ class Posts extends Component {
                                 <td>{item.url}</td>
                                 <td>{new Date(item.createdAt).toDateString()}</td>
                                 <td>
-                                    <button type="button" className="btn btn-outline-danger btn-sm mr-1">Delete</button>
+                                    <button type="button" className="btn btn-outline-danger btn-sm mr-1" onClick={() => this.deleteHandle(item.id)}>Delete</button>
                                     <button type="button" className="btn btn-outline-info btn-sm">Update</button>
                                 </td>
                             </tr>
