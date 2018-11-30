@@ -10,6 +10,7 @@ class Posts extends Component {
             isLoaded: false,
             items: []
         };
+        this.deleteHandle = deleteHandle()
     }
 
     componentDidMount() {
@@ -30,6 +31,12 @@ class Posts extends Component {
                 });
     }
 
+    deleteHandle() {
+        if (window.confirm("Are you sure?")) {
+            console.log(123);
+        }
+    }
+
     render() {
         return (
             <div>
@@ -39,19 +46,22 @@ class Posts extends Component {
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Url</th>
-                        <th scope="col">Created At</th>
-                        <th scope="col">##</th>
+                        <th scope="col" width="150">Created At</th>
+                        <th scope="col" width="170">##</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        this.state.items.map(item => (
+                        this.state.items.map((item, index) => (
                             <tr key={item.id}>
-                                <th scope="row">1</th>
+                                <th scope="row">{index + 1}</th>
                                 <td><Link to={'/admin/posts/' + item.id}>{item.name}</Link></td>
                                 <td>{item.url}</td>
-                                <td>{item.createdAt}</td>
-                                <td>##</td>
+                                <td>{new Date(item.createdAt).toDateString()}</td>
+                                <td>
+                                    <button type="button" className="btn btn-outline-danger btn-sm mr-1">Delete</button>
+                                    <button type="button" className="btn btn-outline-info btn-sm">Update</button>
+                                </td>
                             </tr>
                         ))
                     }
